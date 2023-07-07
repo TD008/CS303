@@ -29,7 +29,7 @@ public class Lab03_04_driver{
         // Find the size of the list of arrays for use in the loop below
         int listSize = arraysList.size();
         
-        System.out.println("Insert Sort:");
+        System.out.println("Heap Sort:");
 
         // For loop to iterate through each array that is in arrayList and call 
         // the InsertSort.implementAlg method on it to sort the arrays
@@ -43,8 +43,10 @@ public class Lab03_04_driver{
             // Find the current time which will mark the start time of the sorting algorithm
             long startTime = System.nanoTime();
 
+            int[] A = arraysList.get(i);
+
             // Implement the insertion sort algorithm from the InsertSort class
-            int[] arr2 = InsertSort.implementAlg(arraysList.get(i));
+            int[] arr2 = HeapSort.heapSort(A);
 
             // Find the current time again which will mark the end time of the 
             // sorting algorithm and subtract the start time to find the elapsed
@@ -54,13 +56,13 @@ public class Lab03_04_driver{
         
             System.out.println("Time: " + elapsedTime);
             
-            if (InsertSort.ensureSorted(arr2)){
+            if (HeapSort.ensureSorted(arr2)){
 
                 System.out.println("Sorted correctly");
             }
         }
 
-        System.out.println("Merge Sort:");
+        System.out.println("Quick Sort:");
 
         // For loop to iterate through each array that is in arrayList and call 
         // the MergeSort.merge method on it to sort the arrays
@@ -79,7 +81,7 @@ public class Lab03_04_driver{
             int[] temp = new int[A.length];
 
             // Implement the insertion sort algorithm from the InsertSort class
-            MergeSort.mergeSort(A, temp, 0,  A.length - 1);
+            HeapSort.heapSort(A);
 
             // Find the current time again which will mark the end time of the 
             // sorting algorithm and subtract the start time to find the elapsed
@@ -89,7 +91,7 @@ public class Lab03_04_driver{
         
             System.out.println("Time: " + elapsedTime);
             
-            if (InsertSort.ensureSorted(A)){
+            if (HeapSort.ensureSorted(A)){
 
                 System.out.println("Sorted correctly");
             }
